@@ -1,0 +1,57 @@
+h1 {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 6vw;
+    color: #ABABAB;
+    text-align: center
+}
+
+.moods img {
+    padding: 1%;
+    width: 18%;
+}
+
+.footer {
+    padding: 50px;
+}
+
+.footer p, a:link {
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    color: #ABABAB;
+    font-size: calc(10px + 1.5vw);
+    height: 100px;
+}
+
+.footer img {
+    width: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.stats {
+    width: 33%;
+    float: left;
+}
+
+.stats p {
+    text-align: center
+}
+
+.flo {
+    width: 33%;
+    float: left;
+}
+
+.flo img {
+    width: 20%;
+}
+
+.more {
+    width: 33%;
+    float: right
+}
+
+.more p {
+    text-align: center;
+    text-decoration: underline;
+}
