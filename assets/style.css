@@ -70,3 +70,27 @@ p {
     margin-left: auto;
     margin-right: auto
 }
+
+.results img {
+    width: 20px;
+    padding: 2px;
+}
+
+.recorded img {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.worldstats p {
+    
+}
+
+.worldstats img {
+    padding-top: 50px;
+    width: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}

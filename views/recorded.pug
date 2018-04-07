@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+    head
+        title World mood
+        link(href='assets/style.css', rel="stylesheet", type='text/css')
+    body
+        h1 Mood recorded
+        .recorded
+            img(src='assets/' + mood + '.svg')
+            p #{txid}
+        .worldstats
+            a(href="stats")
+                img(src="/assets/world.svg")
+            p World mood stats

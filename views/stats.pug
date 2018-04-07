@@ -1,0 +1,9 @@
+doctype html
+html(lang='en')
+    head
+        title World mood
+        link(href='assets/style.css', rel="stylesheet", type='text/css')
+    body
+        .results
+            - for (var i = 0; i < moods.length; i++)
+                img(src='assets/' + moods[i] + '.svg')
