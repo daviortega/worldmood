@@ -434,8 +434,17 @@ Now I think we are all set.
 
 Lets commit our changes to github and push.
 
+
+See !? All worked out great (I hope) !!!
+
 ## Redirecting a domain.
 
+Now I got the domain name `worldmood.io` just for this app so I will now redirect this domain for my heroku application.
 
+In the Heroku page, go to settings and in Domain and certificates click Add. Type the name of your domain and take a note of the DNS target. Now we need to go back to the dashboard of the domain host and change a few things there.
 
+`CNAME Record www _targetDNS_`
 
+That simple... dne. Now we just need to wait a bit...
+
+Next we will build how to look for posts of worldmood on the FLO blockchain and how to make some dataviz using `d3js`.
