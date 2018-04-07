@@ -426,13 +426,15 @@ Now just run `npm start` and wherever is the port your server is serving you can
 
 Make an account with Heroku and then from your dashboard click in `New` and then `create a new app`. Give your app a name and then click in `Github` as our `Deployment method`. Type the name of your git repository to search and then click on it.
 
-Now the next time you push it to master, Heroku will automatically get the code and reload the app. But now we need to remember that we won't commit the `.env` file with our credentials to our Alexandria wallet. So we need to config them in the Heroku environment. To do that click in Settings, and Show config.
+Then enable automatic deployments if you want Heroku to automatically get the code and reload the app every time you push a commit to the master branch. But now we need to remember that we won't commit the `.env` file with our credentials to our Alexandria wallet. So we need to config them in the Heroku environment. To do that click in Settings, and Show config.
 
 We need to setup two environmental variables: `FLOWALLET_USERNAME` and `FLOWALLET_PASSWORD`.
 
 Now I think we are all set.
 
 Lets commit our changes to github and push.
+
+## Redirecting a domain.
 
 
 
