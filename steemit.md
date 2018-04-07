@@ -296,5 +296,144 @@ Now we need to tell the server what to do with this info: put in the FLO blockch
 
 ## Posting info in the FLO blockchain with oip-js
 
+With the new `oip-js` it is too easy to make a transaction. To use the full power of the `oip-js` we should get a Alexandria account [here](https://alexandria.io/publisher/register.html)
+
+Just register an account. In our case we will be `worldmood@obviously.not.my.username.duh` and pick a nice password.
+
+When you register to Alexandria, they are so nice that they will give you 1 FLO. :)
+
+So let's install `oip-js`:
+
+```bash
+npm install --save oip-js
+```
+
+To use `oip-js` we need to require it:
+
+```javascript
+const OIPJS = require('oip-js').OIPJS
+const Core = OIPJS()
+```
+
+and to make a transaction we need to login to our account first:
+
+```javascript
+Core.Wallet.Login(username, password, function(success){
+	console.log("Login Successful!");
+}, function(error){
+	console.error(error);
+})
+```
+
+obviously `username` and `password` are the ones we picked before. To avoid posting my username and password in the code, I use [foreman](https://www.npmjs.com/package/foreman). To use foreman, we need to make a `Procfile` saying what we are up to when we run the script:
+
+```bash
+web: node server.js
+```
+
+and we need to make a `.env` file:
+
+```
+FLOWALLET_USERNAME="worldmood@obviously.not.my.username.duh"
+FLOWALLET_PASSWORD=notMyPassword
+```
+
+and then let's edit our `packege.json` start script:
+
+```json
+  "scripts": {
+    "start": "node_modules/foreman/nf.js start"
+  },
+```
+
+so, the next time we run `npm start`, we will be running `foreman` which will read the content of `.env` and make up environmental variables with our username and password for the `oip-js`. Then it will run the instructions in the `Procfile` which is basically to run our `server.js` program with `node`.
+
+> Obviously, add the `.env` to your `.gitignore`. DO NOT COMMIT YOUR PASSWORD.
+
+Now node has a simple way to deal with environmental variables:
+
+```javascript
+const username = process.env.FLOWALLET_USERNAME
+const password = process.env.FLOWALLET_PASSWORD
+```
+
+Now, let's add all this in our `server.js` file to make a transaction:
+
+```javascript
+const express = require('express')
+const OIPJS = require('oip-js').OIPJS
+const Core = OIPJS()
+
+const username = process.env.FLOWALLET_USERNAME
+const password = process.env.FLOWALLET_PASSWORD
+
+Core.Wallet.Login(username, password, function(success){
+	console.log("Login Successful!");
+}, function(error){
+	console.error(error);
+})
+
+
+const app = express()
+
+const port = process.env.PORT || 3000
+
+app.use(express.static(__dirname))
+
+app.set('view engine', 'pug')
+
+app.get('/', (request, respond) => {
+    respond.render('index')
+})
+
+app.get('/register', (request, respond) => {
+    const mood = request.query.mood
+    const message = `Worldmood-0.1 : ${mood}`
+    Core.Wallet.sendTxComment({txComment: message}, function(success){
+        console.log("Success!", success)
+        respond.send(JSON.stringify({
+            mood,
+            success
+        }, null, ' '))
+    }, function(error){ console.error(error) })
+
+})
+
+app.listen(port, () => {
+    console.log(`Serving on port: ${port}`)
+})
+```
+
+The part that matters here is the route where we setup the route `/register` and to make a transaction this is the magical code:
+
+```javascript
+Core.Wallet.sendTxComment({txComment: message}, function(success){
+    console.log("Success!", success)
+    respond.send(JSON.stringify({
+        mood,
+        success
+    }, null, ' '))
+}, function(error){ console.error(error) })
+```
+
+That's it.
+
+Now just run `npm start` and wherever is the port your server is serving you can take a look at our site, running localy in your browser here: `http://localhost:portNumber` (sub your portnumber for the port number)
+
+## Deploying to Heroku.
+
+[Heroku](heroku.com) is a fantastic platform for making small apps and what not.
+
+Make an account with Heroku and then from your dashboard click in `New` and then `create a new app`. Give your app a name and then click in `Github` as our `Deployment method`. Type the name of your git repository to search and then click on it.
+
+Now the next time you push it to master, Heroku will automatically get the code and reload the app. But now we need to remember that we won't commit the `.env` file with our credentials to our Alexandria wallet. So we need to config them in the Heroku environment. To do that click in Settings, and Show config.
+
+We need to setup two environmental variables: `FLOWALLET_USERNAME` and `FLOWALLET_PASSWORD`.
+
+Now I think we are all set.
+
+Lets commit our changes to github and push.
+
+
 
 

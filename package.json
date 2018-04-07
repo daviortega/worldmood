@@ -4,7 +4,7 @@
   "description": "App to register the user mood in the FLO blockchain",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node_modules/foreman/nf.js start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,7 +25,10 @@
   "dependencies": {
     "express": "^4.16.3",
     "foreman": "^2.0.0",
-    "oip-js": "^1.0.29",
+    "oip-js": "^1.1.4",
     "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2"
   }
 }
