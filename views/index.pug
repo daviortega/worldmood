@@ -3,17 +3,23 @@ html(lang='en')
     head
         title World mood
         link(href='assets/style.css', rel="stylesheet", type='text/css')
+        script(async src="https://www.googletagmanager.com/gtag/js?id=UA-117154717-1")
+        script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-117154717-1');
     body
         h1 What is your mood today?
         .moods
             a(href="register?mood=happiest")
-                img(src="assets/happiest.svg" )
+                img(src="assets/happiest.svg")
             a(href="register?mood=happy")
-                img(src="assets/happy.svg" )
+                img(src="assets/happy.svg")
             a(href="register?mood=meh")
-                img(src="assets/meh.svg" )
+                img(src="assets/meh.svg")
             a(href="register?mood=sad")
-                img(src="assets/sad.svg" )
+                img(src="assets/sad.svg")
             a(href="register?mood=saddest")
                 img(src="assets/saddest.svg")
         .footer

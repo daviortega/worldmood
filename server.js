@@ -1,6 +1,5 @@
 const express = require('express')
 const OIPJS = require('oip-js').OIPJS
-
 const Core = OIPJS()
 
 const username = process.env.FLOWALLET_USERNAME
@@ -36,6 +35,10 @@ app.get('/register', (request, respond) => {
         }, null, ' '))
     }, function(error){ console.error(error) })
 
+})
+
+app.get('/more', (request, respond) => {
+    respond.render('more')
 })
 
 app.listen(port, () => {

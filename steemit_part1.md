@@ -1,6 +1,6 @@
 # Recording the world mood in the FLO blockchain
 
-> TL;DR: Making distributed apps in the FLO blockchain is even easier after the launch of [oip-js]. This is my experience, step by step, to make our newest (April 2018) app: WorldMood.io
+> TL;DR: Making distributed apps in the FLO blockchain is even easier after the launch of [oip-js](https://www.npmjs.com/package/oip-js). This is my experience, step by step, to make our newest (April 2018) app: WorldMood.io
 
 I have been a lot of efforts to register the “world’s mood” based on twitter and other sentiment analysis and I though that it would be interesting to do register people’s mood in the blockchain.
 

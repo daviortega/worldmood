@@ -5,6 +5,13 @@ h1 {
     text-align: center
 }
 
+p {
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;;
+    font-size: 20px;
+    color: rgb(45, 45, 45);
+    text-align: center
+}
+
 .moods img {
     padding: 1%;
     width: 18%;
@@ -54,4 +61,12 @@ h1 {
 .more p {
     text-align: center;
     text-decoration: underline;
+}
+
+.links img {
+    width: 40px;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
