@@ -84,7 +84,7 @@ p {
 }
 
 .worldstats p {
-    
+
 }
 
 .worldstats img {
@@ -93,4 +93,11 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto
+}
+
+@media screen and (max-width: 500px) {
+    .moods img {
+        margin: 15px auto;
+        display: table-row;
+    }
 }
